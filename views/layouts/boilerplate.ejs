@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<%=cssUrl%>">
+    <link rel="stylesheet" href="/css/boilerplate.css">
+    <% if (cssUrl !== 'none') { %>
+        <link rel="stylesheet" href="<%=cssUrl%>">
+    <% } %>
+
     <title>home</title>
 </head>
 <body>
     <header>
-        <img src="./img/11230830.png" alt="logo">
+        <img src="/img/11230830.png" alt="logo">
     </header>
     <nav>
-        <img src="./img/11240530.png" alt="">
+        <img src="/img/11240530.png" alt="">
         <div id="nav_buttons">
             <div><a href=""">FAMILY HISTORY</a></div>
             <div><a href="">ARTICLES</a></div>
