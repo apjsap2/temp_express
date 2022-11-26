@@ -10,16 +10,25 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.engine('ejs', ejsMate)
 
 app.get('/', (req, res) => {
-	res.render('home')
+	const cssUrl = './css/home.css'
+	res.render('home', {cssUrl})
 })
 
 app.get('/article11230901', (req, res) => {
-	res.render('./articles/article11230901')
+	const cssUrl = './css/article11230901.css'
+	res.render('./articles/article11230901', {cssUrl})
 })
 
 
-
+app.get('/articles', (req, res) => {
+	const cssUrl = './css/home.css'
+	res.render('./category/articles', {cssUrl})
+})
  
+app.get('/articles/:id', (req, res) => {
+	const articleUrl = req.params
+	res.render(`./articles/${articleUrl}`)
+})
 
 app.listen(PORT, () => {
 	console.log(`Express listening on port ${PORT} now`)

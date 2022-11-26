@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+header img {
+    width: 1000px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+nav {
+    position: relative;
+    width: 1000px;
+    margin: auto;
+}
+
+nav img {
+    position: absolute;
+    width: 1000px;
+    height: 50px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+#nav_buttons div {
+    position: absolute;
+    width: 140px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#nav_buttons div:nth-child(1) {
+    left: 77px;
+    top: 12px;
+}
+
+#nav_buttons div:nth-child(2) {
+    left: 307px;
+    top: 12px;
+}
+
+#nav_buttons div:nth-child(3) {
+    left: 507px;
+    top: 12px;
+}
+
+#nav_buttons div:nth-child(4) {
+    left: 677px;
+    top: 12px;
+}
+
+#nav_buttons div:nth-child(5) {
+    left: 900px;
+    top: 12px;
+}
+
+#nav_empty {
+    height: 50px;
+}
+
+nav a {
+    text-decoration: none;
+    outline: none;
+    color: black;
+}
+
+nav a:hover, nav a:active {
+    text-decoration: none;
+    color: black;
+}
+
+/* --------------------------------이상 header & nav css---------------------------------- */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@300&display=swap');
+
+.wrapper {
+    width: 1280px;
+    height: 2370px;
+    position: relative;
+    margin: auto;
+}
+
+.title {
+    position: absolute;
+    /* width: 390px; */
+    width: 410px;
+    height: 100px;
+    left: 180px;
+    top: 71px;
+    
+    font-family: 'Do Hyeon', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 100px;
+}
+
+.content1 {
+    width: 345px;
+    height: 72px;
+    left: 779px;
+    top: 428px;
+    position: absolute;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 72px;
+}
+
+.content2 {
+    width: 242px;
+    height: 72px;
+    left: 207px;
+    top: 1135px;
+    position: absolute;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 72px;
+}
+
+.content3 {
+    width: 242px;
+    height: 72px;
+    left: 836px;
+    top: 1810px;
+    position: absolute;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 72px;
+}
+
+.img1 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 125px;
+    top: 214px;
+}
+
+.img2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 655px;
+    top: 921px;
+}
+
+.img3 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 125px;
+    top: 1596px;
+}
