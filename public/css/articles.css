@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@300&display=swap');
+
+.card-wrapper {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border: black solid 2px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.card:hover {
+    border: dotted 2px grey;
+}
+
+.title {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 30px;
+}
+
+.date {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 15px;
+}
+
+.description-wrapper {
+    border: black solid 1px;
+    border-radius: 10px;
+    position: absolute;
+    top: 100px;
+    height: 175px;
+    left: 25px;
+    width: 250px;
+    display: flex;
+}
+
+.description {
+    width: 200px;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+}

@@ -36,6 +36,10 @@ nav img {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+#nav_buttons div a:hover {
+    color: gray;
+}
+
 #nav_buttons div:nth-child(1) {
     left: 77px;
     top: 12px;

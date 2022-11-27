@@ -4,6 +4,16 @@ const app = express()
 const ejsMate = require('ejs-mate')
 const PORT = process.env.PORT || 3000;
 
+
+
+//   이하  local-data.js에서 더미 정보 가져오기
+
+const {articles} = require('./local-data.js')
+
+
+//   이상  local-data.js에서 더미 정보 가져오기
+
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -11,12 +21,7 @@ app.engine('ejs', ejsMate)
 
 app.get('/', (req, res) => {
 	const cssUrl = 'none'
-	res.render('home', {cssUrl})
-})
-
-app.get('/article11230901', (req, res) => {
-	const cssUrl = '/css/article11230901.css'
-	res.render('articles/article11230901', {cssUrl})
+	res.render('index', {cssUrl})
 })
 
 app.get('/articles/:id', (req, res) => {
@@ -26,8 +31,8 @@ app.get('/articles/:id', (req, res) => {
 })
 
 app.get('/articles', (req, res) => {
-	const cssUrl = 'none'
-	res.render('category/articles', {cssUrl})
+	const cssUrl = '/css/articles.css'
+	res.render('category/articles', {cssUrl, articles})
 })
  
 

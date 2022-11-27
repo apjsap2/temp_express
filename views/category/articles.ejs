@@ -1,5 +1,14 @@
 <% layout('layouts/boilerplate') %> 
 
-<h1>이것은 아티클 메인 페이지입니다.</h1>
+<div class="card-wrapper">
+    <% for ( i = 0; i < articles.length; i ++ ) { %> 
+    <div class="card" onclick="location.href=`/articles/<%=articles[i].file%>`">
+        <div class="title"><%= articles[i].title %> </div>
+        <div class="date"><%= articles[i].date %></div>
+        <div class="description-wrapper">
+            <div class="description"><%= articles[i].description %></div>
+        </div>
+    </div>
+    <% } %> 
+</div>
 
-<a href="">11월 23일 : 육아는 힘들어</a>
