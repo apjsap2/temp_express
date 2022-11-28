@@ -3,6 +3,10 @@
 <div class="card-wrapper">
     <% for ( i = 0; i < articles.length; i ++ ) { %> 
     <div class="card" onclick="location.href=`/articles/<%=articles[i].file%>`">
+
+        <img class="card-img" alt="카드 배경이미지">  
+
+
         <div class="title"><%= articles[i].title %> </div>
         <div class="date"><%= articles[i].date %></div>
         <div class="description-wrapper">
@@ -12,3 +16,14 @@
     <% } %> 
 </div>
 
+<script>
+    const img_list = document.querySelectorAll('.card-img');
+    let i = 1
+    for (element of img_list) {
+        element.src = `/img/article_card_img${i}.png`;
+        i ++;
+        if (i = 10) {
+            i = 1;
+        }
+    }
+</script>

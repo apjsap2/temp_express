@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@300&display=swap');
 
+
 .card-wrapper {
     width: 1000px;
     margin: auto;
@@ -20,6 +21,11 @@
 
 .card:hover {
     border: dotted 2px grey;
+}
+
+.card-img {
+    border-radius: 20px;
+    opacity: 0.3;
 }
 
 .title {
