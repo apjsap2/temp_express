@@ -4,7 +4,7 @@
     <% for ( i = 0; i < articles.length; i ++ ) { %> 
     <div class="card" onclick="location.href=`/articles/<%=articles[i].file%>`">
 
-        <img class="card-img" alt="카드 배경이미지">  
+        <img class="card-img" src="" alt="카드 배경이미지">  
 
 
         <div class="title"><%= articles[i].title %> </div>
@@ -17,13 +17,14 @@
 </div>
 
 <script>
-    const img_list = document.querySelectorAll('.card-img');
-    let i = 1
-    for (element of img_list) {
-        element.src = `/img/article_card_img${i}.png`;
-        i ++;
-        if (i = 10) {
-            i = 1;
-        }
+    const $card_img = document.querySelectorAll('.card-img');
+
+    function random(limit) {
+        return Math.trunc(Math.random() * limit)
+    }
+
+    for ( i = 0; i < $card_img.length; i++ ) {
+        const randomNumber = random(8);
+        $card_img[i].src = `/img/article_card_img${randomNumber}.png`;
     }
 </script>

@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate') %> 
+
+<div class="wrapper">
+    <h1>코멘츠 쇼 페이지 입니다. 인덱스 페이지</h1>
+    <% for (element of comments) { %> 
+    <div class="comment-box">
+        <p class="comment-text"><%= element.text %> </p>
+        <p class="comment-date"><%= element.date %> </p>
+    </div>
+    <% } %> 
+</div>

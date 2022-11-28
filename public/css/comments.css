@@ -1,0 +1,21 @@
+.wrapper {
+    width: 1000px;
+    margin: auto;
+}
+
+.comment-box {
+    width: 800px;
+    height: 100px;
+    margin: 20px auto;
+    background-color: aliceblue;
+    border-radius: 20px;
+    position: relative;
+}
+
+.comment-text {
+    position: absolute;
+}
+
+.comment-date {
+    position: absolute;
+}

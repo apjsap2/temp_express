@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 //   이하  local-data.js에서 더미 정보 가져오기
 
 const {articles} = require('./local-data.js')
+const {comments} = require('./local-data.js')
 
 
 //   이상  local-data.js에서 더미 정보 가져오기
@@ -22,6 +23,17 @@ app.engine('ejs', ejsMate)
 app.get('/', (req, res) => {
 	const cssUrl = 'none'
 	res.render('index', {cssUrl})
+})
+
+
+app.get('/apps/comments', (req, res) => {
+	const cssUrl = '/css/comments.css'
+	res.render(`comments/comments`, {cssUrl, comments})
+})
+
+app.get('/apps', (req, res) => {
+	const cssUrl = '/css/apps.css'
+	res.render(`category/apps`, {cssUrl})
 })
 
 app.get('/articles/:id', (req, res) => {
