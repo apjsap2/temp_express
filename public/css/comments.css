@@ -10,12 +10,39 @@
     background-color: aliceblue;
     border-radius: 20px;
     position: relative;
+    padding: 0px;
 }
 
 .comment-text {
     position: absolute;
+    top: 15px;
+    left: 32px;
+    width: 600px;
+    height: 70px;
+    font-size: 14px;
+    margin: 0px;
+    line-height: 150%;
 }
 
 .comment-date {
     position: absolute;
+    top: 62px;
+    right: 25px;
+    width: 107px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+    margin: 0px;
+}
+
+.button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+form {
+    position: relative;
+    left: 800px;
+    margin-top: 30px;
 }

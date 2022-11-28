@@ -1,11 +1,14 @@
 <% layout('layouts/boilerplate') %> 
 
 <div class="wrapper">
-    <h1>코멘츠 쇼 페이지 입니다. 인덱스 페이지</h1>
+    <form action="">
+        <button>새 코멘트 입력</button>
+    </form>
     <% for (element of comments) { %> 
     <div class="comment-box">
         <p class="comment-text"><%= element.text %> </p>
         <p class="comment-date"><%= element.date %> </p>
+        <div class="button"><img src="/img/dots-loading.png" alt="더보기"></div>
     </div>
     <% } %> 
 </div>
