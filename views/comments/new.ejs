@@ -2,11 +2,11 @@
 
 <div class="wrapper">
     <div class="comment-box">
-        <form action="">
+        <form action="/apps/comments" method="post">
             <div class="content-wrapper">
-            <label for="content">내용을 입력하세요</label>
+            <label for="comment">내용을 입력하세요</label>
             <br>
-            <textarea name="content" id="content" maxlength="156" required></textarea>
+            <textarea name="comment" id="content" maxlength="156" required></textarea>
             </div>
             <hr>
             <div class="user-wrapper">
@@ -16,9 +16,9 @@
             </div>
             <hr>
             <div class="date-wrapper">
-            <label for="datee">날짜와 시간을 입력하세요. 예)22-11-29-21:30</label>
+            <label for="date">날짜와 시간을 입력하세요. 예)22-11-29-21:30</label>
             <br>
-            <input type="text" id="datee" required>
+            <input type="text" id="date" name="date" required>
             <button>저장</button>
             </div>
         </form>

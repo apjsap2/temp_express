@@ -5,24 +5,25 @@ const ejsMate = require('ejs-mate')
 const PORT = process.env.PORT || 3000;
 
 
-//   이하 mongoDB Atlas 연결 관련 코드
+//   이하 mongoDB연결관련 코드. 추후 atlas connection string으로 대체 해야함
+const Comment = require('./models/comment')
 
 const mongoose = require('mongoose')
-// mongoose.connect('mongodb+srv://apjsap:!ab1988127@cluster0.gcuka.mongodb.net/?retryWrites=true&w=majority')
-// 	.then(() => {
-// 		console.log('MONGO CONNECTION OPEN!!')
-// 	})
-// 	.catch(err => {
-// 		console.log('OH NO, mongo ERROR!!')
-// 		console.log(err)
-// 	})
+mongoose.connect('mongodb://localhost:27017/temp_express')
+	.then(() => {
+		console.log('MONGO CONNECTION OPEN!!')
+	})
+	.catch(err => {
+		console.log('OH NO, mongo ERROR!!')
+		console.log(err)
+	})
 
-//   이상 mongoDB Atlas 연결 관련 코드
+//   이상 mongoDB연결 관련 코드. 추후 atlas connection string으로 대체 해야함
 
 
 //   이하  local-data.js에서 더미 정보 가져오기
 const {articles} = require('./local-data.js')
-const {comments} = require('./local-data.js')
+// const {comments} = require('./local-data.js')    -> db 설정 했으므로 dismiss
 //   이상  local-data.js에서 더미 정보 가져오기
 
 
@@ -30,6 +31,7 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.engine('ejs', ejsMate)
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
 	const cssUrl = 'none'
@@ -42,9 +44,20 @@ app.get('/apps/comments/new', (req, res) => {
 	res.render('comments/new', {cssUrl})
 })
 
-app.get('/apps/comments', (req, res) => {
+app.get('/apps/comments', async (req, res) => {
 	const cssUrl = '/css/comments.css'
+	const comments = await Comment.find({})
 	res.render(`comments/comments`, {cssUrl, comments})
+})
+
+app.post('/apps/comments', async (req, res, next) => {
+	const comment = req.body.comment
+	const user = req.body.user
+	const date = req.body.date
+	const newComment = new Comment({comment: comment, user: user, date: date})
+	await newComment.save()
+
+	res.redirect('/apps/comments')
 })
 
 app.get('/apps', (req, res) => {

@@ -35,6 +35,16 @@
     margin: 0px;
 }
 
+.comment-user {
+    position: absolute;
+    top: 82px;
+    right: 30px;
+    height: 20px;
+    font-size: 12px;
+    text-align: right;
+    margin: 0px;
+}
+
 .button {
     position: absolute;
     top: 5px;
