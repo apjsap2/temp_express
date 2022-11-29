@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate') %> 
 
 <div class="wrapper">
-    <form action="">
-        <button>새 코멘트 입력</button>
-    </form>
+    <div class="add-button" onclick="location.href='/apps/comments/new'">
+        <div class="add-button-text">Add</div>
+    </div>
     <% for (element of comments) { %> 
     <div class="comment-box">
         <p class="comment-text"><%= element.text %> </p>

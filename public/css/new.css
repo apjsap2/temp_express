@@ -1,0 +1,43 @@
+.wrapper {
+    width: 1000px;
+    margin: auto;
+}
+
+.comment-box {
+    width: 800px;
+    height: 230px;
+    margin: 20px auto;
+    background-color: aliceblue;
+    border-radius: 20px;
+    position: relative;
+    padding: 10px;
+}
+
+#content {
+    font-size: 16px;
+    width: 600px;
+    height: 80px;
+}
+
+.content-wrapper {
+
+}
+
+.user-wrapper {
+
+}
+
+.date-wrapper {
+
+}
+
+button {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}

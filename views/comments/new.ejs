@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %> 
+
+<div class="wrapper">
+    <div class="comment-box">
+        <form action="">
+            <div class="content-wrapper">
+            <label for="content">내용을 입력하세요</label>
+            <br>
+            <textarea name="content" id="content" maxlength="156" required></textarea>
+            </div>
+            <hr>
+            <div class="user-wrapper">
+            <label for="user">작성자를 입력하세요</label>
+            <br>
+            <input type="text" name="user" id="user" required>
+            </div>
+            <hr>
+            <div class="date-wrapper">
+            <label for="datee">날짜와 시간을 입력하세요. 예)22-11-29-21:30</label>
+            <br>
+            <input type="text" id="datee" required>
+            <button>저장</button>
+            </div>
+        </form>
+    </div>
+</div>
