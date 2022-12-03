@@ -1,0 +1,127 @@
+<% layout('layouts/boilerplate') %> 
+
+<body>
+    <div id="wrapper">
+        <p>승 : <span id="win"></span>, 패 : <span id="lose"></span>, 무승부 : <span id="tie"></span></p>
+        <h1 id="title">카드 게임 시작</h1>
+        <p id="description"></p>
+        <button id="generateButton">카드 받기</button>
+        <button id="resetButton">다시 시작하기</button>
+    </div>
+    <script>
+        const wrapper = document.querySelector('#wrapper')
+
+class Card {
+    constructor(name, attack, defence) {
+        this.name = name
+        this.attack = attack
+        this.defence = defence
+    }
+}
+
+let win = 0
+let lose = 0
+let tie = 0
+
+let globalMyCard
+let globalEnemyCard
+let $title = document.querySelector('#title')
+const $resetButton = document.querySelector('#resetButton')
+const $description = document.querySelector('#description')
+let $win = document.querySelector('#win')
+let $lose = document.querySelector('#lose')
+let $tie = document.querySelector('#tie')
+
+function generateButtonAdd() {
+    $win.textContent = win
+    $lose.textContent = lose
+    $tie.textContent = tie
+    $description.style.display = 'none'
+    $generateButton.style.display = ''
+    document.querySelector('#resetButton').style.display = 'none'
+    globalEnemyCard = null
+    globalMyCard = null
+    $title.textContent = '카드 게임 시작'
+    if (document.querySelector('#fightButton') !== null) {
+        document.querySelector('#fightButton').remove()
+    }
+    if (document.querySelector('#runButton') !== null) {
+        document.querySelector('#runButton').remove()
+    }
+}
+
+function random(limit) {
+    return Math.trunc(Math.random() * limit + 1 )
+}
+
+const $generateButton = document.querySelector('#generateButton')
+generateButtonAdd()
+
+$generateButton.addEventListener('click', createNewCard)
+
+function createNewCard() {
+    $title.textContent = '싸우시겠습니까?'
+    globalMyCard = null
+    globalEnemyCard = null
+    document.querySelector('#generateButton').style.display = 'none'
+    const attackScore = random(10)
+    const defenceScore = random(100)
+    const enemyAttackScore = random(10)
+    const enemyDefenceScore = random(100)
+    const myCard = new Card('me', attackScore, defenceScore)
+    const enemyCard = new Card('enemy', enemyAttackScore, enemyDefenceScore)
+    globalMyCard = myCard
+    globalEnemyCard = enemyCard
+    const $fightButton = document.createElement('button')
+    const $runButton = document.createElement('button')
+    $fightButton.setAttribute('id', 'fightButton')
+    $runButton.setAttribute('id', 'runButton')
+    $fightButton.textContent = '싸운다'
+    $runButton.textContent = '도망친다'
+    const $question = document.createElement('p')
+    $question.setAttribute('id', 'question')
+    $question.textContent = `당신의 공격력은 ${attackScore}, 방어력은 ${defenceScore} 입니다`
+    wrapper.appendChild($question)
+    wrapper.appendChild($fightButton)
+    wrapper.appendChild($runButton)
+    $fightButton.addEventListener('click', fight)
+    $runButton.addEventListener('click', runaway)
+}
+
+function fight() {
+    document.querySelector('#fightButton').remove()
+    document.querySelector('#runButton').remove()
+    document.querySelector('#question').remove()
+    $resetButton.style.display = ''
+    const a = globalEnemyCard.defence / globalMyCard.attack
+    const b = globalMyCard.defence / globalEnemyCard.attack
+    if (a < b) {
+        $description.style.display = ''
+        $description.innerHTML = `당신의 공격력은 ${globalMyCard.attack}, 방어력은 ${globalMyCard.defence} 이고 <br> 적의 공격력은 ${globalEnemyCard.attack}, 적의 방어력은 ${globalEnemyCard.defence} 였습니다.`
+        $title.textContent = '당신이 이겼습니다'
+        win ++
+    } else if (b < a) {
+        $description.style.display = ''
+        $description.innerHTML = `당신의 공격력은 ${globalMyCard.attack}, 방어력은 ${globalMyCard.defence} 이고 <br> 적의 공격력은 ${globalEnemyCard.attack}, 적의 방어력은 ${globalEnemyCard.defence} 였습니다.`
+        $title.textContent = '당신이 졌습니다'
+        lose ++
+    } else {
+        $description.style.display = ''
+        $description.innerHTML = `당신의 공격력은 ${globalMyCard.attack}, 방어력은 ${globalMyCard.defence} 이고 <br> 적의 공격력은 ${globalEnemyCard.attack}, 적의 방어력은 ${globalEnemyCard.defence} 였습니다.`
+        $title.textContent = '게임에서 비겼습니다'
+        tie ++
+    }
+}
+
+
+function runaway() {
+    document.querySelector('#fightButton').remove()
+    document.querySelector('#runButton').remove()
+    document.querySelector('#question').remove()
+    $title.textContent = '당신은 겁쟁이 입니다'
+    $resetButton.style.display = ''
+}
+
+$resetButton.addEventListener('click', generateButtonAdd)
+    </script>
+</body>

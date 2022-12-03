@@ -9,7 +9,7 @@
         <p class="comment-text"><%= element.comment %> </p>
         <p class="comment-date"><%= element.date %> </p>
         <p class="comment-user"><%= element.user %> </p>
-        <div class="button"><img src="/img/dots-loading.png" alt="더보기"></div>
+        <div class="button"><img src="/img/dots-loading.png" alt="더보기" onclick="location.href=`/apps/comments/<%=element._id%>/edit`"></div>
     </div>
     <% } %> 
 </div>

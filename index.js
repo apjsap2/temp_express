@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const ejsMate = require('ejs-mate')
+const methodOverride = require('method-override')
 const PORT = process.env.PORT || 3000;
 
 
@@ -23,6 +24,7 @@ mongoose.connect('mongodb://localhost:27017/temp_express')
 
 //   이하  local-data.js에서 더미 정보 가져오기
 const {articles} = require('./local-data.js')
+// const { debug } = require('console')
 // const {comments} = require('./local-data.js')    -> db 설정 했으므로 dismiss
 //   이상  local-data.js에서 더미 정보 가져오기
 
@@ -32,12 +34,32 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.engine('ejs', ejsMate)
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
 	const cssUrl = 'none'
 	res.render('index', {cssUrl})
 })
 
+
+app.get('/apps/comments/:id/edit', async (req, res) => {
+	const { id } = req.params
+	const cssUrl = '/css/new.css'
+	const comment = await Comment.findById(id)
+	res.render(`comments/edit`, {cssUrl, comment})
+})
+
+app.put('/apps/comments/:id', async (req, res) => {
+	const {id} = req.params
+	await Comment.findByIdAndUpdate(id, {comment: req.body.comment, user: req.body.user, date: req.body.date})
+	res.redirect('/apps/comments') // redirect 주의!! render와 다르게 ejs 파일 경로가 아니라 라우트 경로!!!!
+})
+
+app.delete('/apps/comments/:id', async (req, res) => {
+	const {id} = req.params
+	await Comment.findByIdAndDelete(id)
+	res.redirect('/apps/comments')
+})
 
 app.get('/apps/comments/new', (req, res) => {
 	const cssUrl = '/css/new.css'
@@ -50,6 +72,13 @@ app.get('/apps/comments', async (req, res) => {
 	res.render(`comments/comments`, {cssUrl, comments})
 })
 
+app.get('/apps/basiccardgame', (req, res) => {
+	const cssUrl = '/css/basiccardgame.css'
+	res.render('basiccardgame/basiccardgame', {cssUrl})
+})
+
+
+
 app.post('/apps/comments', async (req, res, next) => {
 	const comment = req.body.comment
 	const user = req.body.user
@@ -59,6 +88,7 @@ app.post('/apps/comments', async (req, res, next) => {
 
 	res.redirect('/apps/comments')
 })
+
 
 app.get('/apps', (req, res) => {
 	const cssUrl = '/css/apps.css'

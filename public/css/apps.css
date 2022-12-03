@@ -1,3 +1,13 @@
-h1 {
-    color: gray;
+
+#wrapper {
+    width: 1000px;
+    margin: 30px auto;
+}
+
+#wrapper a {
+    font-size: 20px;
+}
+
+#wrapper div {
+    margin-bottom: 30px;
 }

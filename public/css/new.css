@@ -31,7 +31,7 @@
 
 }
 
-button {
+#save-button {
     position: absolute;
     bottom: 10px;
     right: 20px;
@@ -40,4 +40,14 @@ button {
     border-radius: 10px;
     font-size: 14px;
     font-weight: bold;
+}
+
+#delete-button {
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    margin-top: 30px;
 }
