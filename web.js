@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const ejsMate = require('ejs-mate')
 const methodOverride = require('method-override')
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8001;
 
 
 //   이하 mongoDB연결관련 코드. 추후 atlas connection string으로 대체 해야함
